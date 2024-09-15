@@ -42,6 +42,7 @@ def process_pdf(file):
 # Function to generate HTML for resume content
 def generate_resume_html(resume_content):
     system_prompt = """
+    Generate only the HTML code for the following resume content. Do not include any additional text or explanations.
     Generate an HTML webpage for the following updated resume content. Ensure proper structure with sections like Contact Information, Education, Skills, Experience, Projects, and Coding Platforms. Format the HTML using headings, lists, and sections for clarity and readability.
 
     Here is the updated resume content: {resume_content}
@@ -54,10 +55,10 @@ def generate_resume_html(resume_content):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo", 
         messages=[
-            {"role": "system", "content": "You are a helpful assistant that generates HTML code for resumes."},
+            {"role": "system", "content": "You are a helpful assistant that generates HTML code for resumes. Generate only the HTML code for the following resume content. Do not include any additional text or explanations."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=1800,
+        max_tokens=2000,
         temperature=0.3
     )
     

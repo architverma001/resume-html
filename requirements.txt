@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+openai
+langchain
+langchain-community
+PyPDF2
+jinja2
+python-multipart
